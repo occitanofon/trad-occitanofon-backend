@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  mongodb:
+    container_name: mongodb-dev
+    restart: always
+    image: mongo:5.0.3
+    ports:
+      - 27017:27017
+    environment:
+      TZ: Europe/Paris
+      MONGO_INITDB_ROOT_USERNAME: occitan
+      MONGO_INITDB_ROOT_PASSWORD: naticco

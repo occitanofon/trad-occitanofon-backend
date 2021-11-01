@@ -1,0 +1,54 @@
+[
+  {
+    "dialect": "auvernhat",
+    "subdialects": [
+      "estandard",
+      "brivadés",
+      "septentrional"
+    ]
+  },
+  {
+    "dialect": "gascon",
+    "subdialects": [
+      "estandard",
+      "aranés",
+      "bearnés"
+    ]
+  },
+  {
+    "dialect": "lengadocian",
+    "subdialects": [
+      "estandard",
+      "agenés",
+      "besierenc",
+      "carcassés",
+      "roergat"
+    ]
+  },
+  {
+    "dialect": "lemosin",
+    "subdialects": [
+      "estandard",
+      "marchés",
+      "peiregordin"
+    ]
+  },
+  {
+    "dialect": "provençau",
+    "subdialects": [
+      "estandard",
+      "maritime",
+      "niçard",
+      "rodanenc"
+    ]
+  },
+  {
+    "dialect": "vivaroaupenc",
+    "subdialects": [
+      "estandard",
+      "aupenc",
+      "gavòt",
+      "vivarodaufinenc"
+    ]
+  }
+]
