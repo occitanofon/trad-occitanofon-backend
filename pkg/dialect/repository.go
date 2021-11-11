@@ -55,11 +55,12 @@ func (r *repository) GetOccitanWithFurtherInfo(translatorID string) ([]entities.
 		}
 	}
 
+	addFieldStage := bson.D{{Key: "$addFields", Value: bson.D{{Key: "fullDialect", Value: bson.D{{Key: "$concat", Value: []interface{}{"$dialectName", "_", "$subdialectName"}}}}}}}
 	lookupStage := bson.D{
 		{Key: "$lookup", Value: bson.D{
 			{Key: "from", Value: "Translations"},
 			{Key: "pipeline", Value: []interface{}{bson.D{{Key: "$match", Value: bson.D{{Key: "fr", Value: bson.D{{Key: "$exists", Value: true}}}}}}}},
-			{Key: "localField", Value: "_id"},
+			{Key: "localField", Value: "fullDialect"},
 			{Key: "foreignField", Value: "occitan"},
 			{Key: "as", Value: "totalTranslated"},
 		}},
@@ -102,7 +103,7 @@ func (r *repository) GetOccitanWithFurtherInfo(translatorID string) ([]entities.
 	sortStage := bson.D{{Key: "$sort", Value: bson.D{{Key: "dialect", Value: 1}}}}
 
 	ctx := context.Background()
-	cursor, err := occitanColl.Aggregate(ctx, mongo.Pipeline{lookupStage, project1Stage, project2Stage, groupStage, project3Stage, sortStage})
+	cursor, err := occitanColl.Aggregate(ctx, mongo.Pipeline{addFieldStage, lookupStage, project1Stage, project2Stage, groupStage, project3Stage, sortStage})
 	if err != nil {
 		return nil, &pkg.DBError{
 			Code:    500,

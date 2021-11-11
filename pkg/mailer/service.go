@@ -78,7 +78,7 @@ func (es *Service) sender() {
 		email.SetBody(mail.TextHTML, body)
 
 		//Send with high priority
-		email.SetPriority(mail.PriorityLow)
+		email.SetPriority(mail.PriorityHigh)
 
 		// always check error after send
 		if email.Error != nil {

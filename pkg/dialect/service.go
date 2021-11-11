@@ -3,8 +3,8 @@ package dialect
 import "btradoc/entities"
 
 type Service interface {
-	Exists(dialect, subdialect string) (bool, error)
 	FetchOccitan(translatorID string) ([]entities.Occitan, error)
+	Exists(dialect, subdialect string) (bool, error)
 }
 
 type service struct {

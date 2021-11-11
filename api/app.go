@@ -13,9 +13,7 @@ import (
 	"btradoc/pkg/translation"
 	"btradoc/storage/mongodb"
 	"flag"
-	"fmt"
 	"os"
-	"time"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -30,7 +28,7 @@ var (
 )
 
 func init() {
-	LOG_FILE = fmt.Sprintf("logrus_%s.log", time.Now().Format(time.RFC3339))
+	LOG_FILE = "logrus.log"
 
 	PRODUCTION_MOD = flag.Bool("prod", false, "enable production mode")
 	flag.Parse()

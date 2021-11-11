@@ -30,7 +30,7 @@ func TestFetchOccitan(t *testing.T) {
 	dialectRepo := NewRepo(db)
 	dialectService := NewService(dialectRepo)
 
-	translatorID := "6148c3f1ba78b40cdeb49289"
+	translatorID := "6172fc761d23a6beb3a9666a"
 	result, err := dialectService.FetchOccitan(translatorID)
 	assert.Nil(t, err)
 	t.Log(result)
